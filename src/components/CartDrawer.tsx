@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useCart } from '../context/CartContext';
-import { X, Plus, Minus, Trash2, Sparkles, Check } from 'lucide-react';
+import { X, Plus, Minus, Trash2, Check } from 'lucide-react';
 
 export function CartDrawer() {
   const {
@@ -14,6 +14,7 @@ export function CartDrawer() {
     discount,
     appliedCode,
     cartTotal,
+    setCurrentView,
   } = useCart();
 
   const [promoInput, setPromoInput] = useState('');
@@ -65,7 +66,11 @@ export function CartDrawer() {
             {/* Header */}
             <div className="p-6 border-b border-pink-50 flex justify-between items-center bg-bg-pink">
               <div className="flex items-center space-x-2">
-                <Sparkles className="w-5 h-5 text-primary-pink" />
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF6C84" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5.5 h-5.5">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <path d="M16 10a4 4 0 0 1-8 0" />
+                </svg>
                 <h3 className="font-serif text-2xl font-bold text-text-charcoal text-left">Your Glow Cart</h3>
               </div>
               <button
@@ -90,8 +95,12 @@ export function CartDrawer() {
                 </div>
               ) : cart.length === 0 ? (
                 <div className="h-full flex flex-col items-center justify-center text-center space-y-6">
-                  <div className="w-16 h-16 bg-bg-pink rounded-full flex items-center justify-center text-primary-pink">
-                    <Sparkles className="w-6 h-6 animate-pulse" />
+                  <div className="w-16 h-16 bg-bg-pink rounded-full flex items-center justify-center">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF6C84" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+                      <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                      <line x1="3" y1="6" x2="21" y2="6" />
+                      <path d="M16 10a4 4 0 0 1-8 0" />
+                    </svg>
                   </div>
                   <div>
                     <h4 className="font-sans font-semibold text-lg text-text-charcoal">Your cart is empty</h4>
@@ -220,23 +229,50 @@ export function CartDrawer() {
                 {/* Checkout CTA Options */}
                 <div className="space-y-3 pt-2">
                   <button
-                    onClick={handleCheckout}
-                    className="w-full bg-primary-pink text-white font-sans font-bold py-3.5 rounded-full border border-accent-gold/30 hover:bg-opacity-90 transition-all text-center flex items-center justify-center gap-2 cursor-pointer"
+                    onClick={() => {
+                      setIsCartOpen(false);
+                      setCurrentView('checkout');
+                    }}
+                    className="w-full bg-[#FF6C84] hover:bg-[#FF8A9F] text-white font-sans font-bold py-3.5 rounded-full border border-pink-100 hover:brightness-105 transition-all text-center flex items-center justify-center gap-2 cursor-pointer text-[15px] tracking-wide shadow-sm"
                   >
-                    <Sparkles className="w-5 h-5 text-accent-gold" />
-                    Pay with Credit Card
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-4.5 h-4.5">
+                      <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                      <line x1="8" y1="21" x2="16" y2="21" />
+                      <line x1="12" y1="17" x2="12" y2="21" />
+                    </svg>
+                    Proceed to Checkout
+                  </button>
+
+                  <div className="flex items-center my-2 text-gray-400 text-xs uppercase font-semibold font-sans">
+                    <span className="flex-1 h-[1px] bg-pink-100"></span>
+                    <span className="px-3">or instant pay</span>
+                    <span className="flex-1 h-[1px] bg-pink-100"></span>
+                  </div>
+
+                  <button
+                    onClick={handleCheckout}
+                    className="w-full bg-primary-pink text-white font-sans font-bold py-3.5 rounded-full border border-white/10 hover:brightness-105 transition-all text-center flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-4.5 h-4.5">
+                      <rect x="2" y="5" width="20" height="14" rx="2" ry="2" />
+                      <line x1="2" y1="10" x2="22" y2="10" />
+                    </svg>
+                    Instant Demo Checkout
                   </button>
 
                   <div className="grid grid-cols-2 gap-3">
                     <button
                       onClick={handleCheckout}
-                      className="bg-[#FF6C84] text-white py-3 px-4 rounded-full font-sans font-semibold text-xs flex items-center justify-center gap-1.5 hover:brightness-105 transition-colors cursor-pointer"
+                      className="bg-black text-white py-3 px-4 rounded-full font-sans font-semibold text-xs flex items-center justify-center gap-1.5 hover:bg-gray-900 transition-colors cursor-pointer"
                     >
-                      <span className="text-sm font-bold"></span> Pay
+                      <svg className="w-4 h-4 fill-current mr-0.5" viewBox="0 0 170 170">
+                        <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.34.13-9.13-1.92-14.37-6.13-3.43-2.82-7.3-7.46-11.61-13.92-4.78-7.14-8.79-15.65-12.03-25.53-3.24-9.87-4.88-19.38-4.88-28.53 0-14.53 3.65-26.06 10.96-34.59 7.31-8.52 16.48-12.83 27.5-12.94 5.25 0 10.88 1.42 16.88 4.25 6 2.82 10.15 4.25 12.44 4.25 2.1 0 6.07-1.37 11.9-4.1 5.83-2.73 11.19-4.04 16.07-3.92 11.82.23 21.08 4.54 27.79 12.94 6.7 8.4 10.06 18.57 10.06 30.5 0 9.17-2.1 17.61-6.31 25.32zM119.22 35.15c0-7.73 2.76-14.86 8.28-21.39 5.53-6.53 12.46-10.29 20.8-11.28.16 1.14.23 2.07.23 2.79 0 7.44-2.76 14.42-8.28 20.95-5.52 6.53-12.59 10.36-21.2 11.48a27.16 27.16 0 01-.17-2.55z" stroke="none" />
+                      </svg>
+                      Pay
                     </button>
                     <button
                       onClick={handleCheckout}
-                      className="bg-[#FF6C84] text-white py-3 px-4 rounded-full font-sans font-bold text-xs flex items-center justify-center gap-1 hover:brightness-105 transition-colors cursor-pointer"
+                      className="bg-[#FFC439] text-[#003087] py-3 px-4 rounded-full font-sans font-bold text-xs flex items-center justify-center gap-1 hover:bg-[#F2B52B] transition-colors cursor-pointer"
                     >
                       PayPal
                     </button>

@@ -9,20 +9,34 @@ import { Hero, TrustBar, PromoBanner, FreeShippingBanner, SkinQuizBanner } from 
 import { CategoryGrid, FeaturedProducts } from './components/ProductSections';
 import { HowItWorks, Ingredients, AboutSection } from './components/InfoSections';
 import { BeforeAfter, Testimonials, Newsletter } from './components/SocialProof';
-import { CartProvider } from './context/CartContext';
+import { CartProvider, useCart } from './context/CartContext';
 import { WishlistProvider } from './context/WishlistContext';
 import { CartDrawer } from './components/CartDrawer';
 import { ScrollAnimate } from './components/ScrollAnimate';
+import { ProductDetail } from './components/ProductDetail';
+import { CheckoutPage } from './components/CheckoutPage';
 
 export default function App() {
   return (
     <WishlistProvider>
       <CartProvider>
-        <div className="min-h-screen bg-white">
-          {/* 1. STICKY NAVIGATION */}
-          <Navigation />
+        <AppContent />
+      </CartProvider>
+    </WishlistProvider>
+  );
+}
 
-          <main>
+function AppContent() {
+  const { currentView } = useCart();
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* 1. STICKY NAVIGATION */}
+      <Navigation />
+
+      <main>
+        {currentView === 'home' && (
+          <>
             {/* 2. HERO SECTION */}
             <ScrollAnimate>
               <Hero />
@@ -87,16 +101,28 @@ export default function App() {
             <ScrollAnimate>
               <Newsletter />
             </ScrollAnimate>
-          </main>
+          </>
+        )}
 
-          {/* 15. FOOTER */}
-          <Footer />
+        {currentView === 'product-detail' && (
+          <ScrollAnimate>
+            <ProductDetail />
+          </ScrollAnimate>
+        )}
 
-          {/* Sliding Interactive Cart Drawer */}
-          <CartDrawer />
-        </div>
-      </CartProvider>
-    </WishlistProvider>
+        {currentView === 'checkout' && (
+          <ScrollAnimate>
+            <CheckoutPage />
+          </ScrollAnimate>
+        )}
+      </main>
+
+      {/* 15. FOOTER */}
+      <Footer />
+
+      {/* Sliding Interactive Cart Drawer */}
+      <CartDrawer />
+    </div>
   );
 }
 

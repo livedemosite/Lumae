@@ -26,7 +26,7 @@ export function Hero() {
                 onClick={() => {
                   document.getElementById('best-sellers')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }}
-                className="bg-[#FF6C84] text-white font-sans font-semibold px-8 py-3.5 rounded-full hover:brightness-105 transition-all text-[15px]"
+                className="bg-[#FF6C84] text-white border border-[#FF6C84] font-sans font-semibold px-8 py-3.5 rounded-full hover:bg-transparent hover:text-[#FF6C84] transition-all duration-300 text-[15px]"
               >
                 Shop Serums
               </button>
@@ -34,7 +34,7 @@ export function Hero() {
                 onClick={() => {
                   document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }}
-                className="bg-[#FF6C84] text-white font-sans font-semibold px-8 py-3.5 rounded-full hover:brightness-105 transition-all text-[15px]"
+                className="bg-transparent text-[#FF6C84] border border-[#FF6C84] font-sans font-semibold px-8 py-3.5 rounded-full hover:bg-[#FF6C84] hover:text-white transition-all duration-300 text-[15px]"
               >
                 Explore All
               </button>

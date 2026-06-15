@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { products } from './ProductSections';
 
 export function Navigation() {
-  const { cartCount, setIsCartOpen, addToCart } = useCart();
+  const { cartCount, setIsCartOpen, addToCart, currentView, setCurrentView, setSelectedProductId } = useCart();
   const { wishlistCount } = useWishlist();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -32,9 +32,20 @@ export function Navigation() {
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
     setIsMobileMenuOpen(false); // Close mobile menu first
-    const element = document.getElementById(targetId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    if (currentView !== 'home') {
+      setCurrentView('home');
+      setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   };
 
@@ -78,7 +89,14 @@ export function Navigation() {
                 {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
               <div className="flex-shrink-0 flex items-center">
-                <a href="#" className="flex items-center hover:opacity-90 transition-opacity group">
+                <a 
+                  href="#" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setCurrentView('home');
+                  }} 
+                  className="flex items-center hover:opacity-90 transition-opacity group"
+                >
                   <svg className="w-8 h-8 md:w-10 md:h-10 shrink-0" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M 40 10 C 15 35 15 65 30 85 C 40 95 50 95 55 90 C 45 80 40 65 55 45 C 50 65 50 80 50 85 C 35 75 30 55 40 10 Z" fill="#FF6C84" />
                     <path d="M 50 85 C 75 80 85 55 75 35 C 65 50 55 70 50 85 Z" fill="#FF6C84" />
@@ -194,7 +212,12 @@ export function Navigation() {
                         {searchResults.map(product => (
                           <div 
                             key={product.id} 
-                            className="flex items-center gap-4 bg-white p-3 rounded-[12px] border border-gray-100 hover:border-pink-200 transition-colors shadow-sm hover:shadow-md" 
+                            onClick={() => {
+                              setSelectedProductId(product.id);
+                              setCurrentView('product-detail');
+                              setIsSearchOpen(false);
+                            }}
+                            className="flex items-center gap-4 bg-white p-3 rounded-[12px] border border-gray-100 hover:border-pink-200 transition-colors shadow-sm hover:shadow-md cursor-pointer" 
                           >
                             <img src={product.image} alt={product.name} className="w-16 h-16 rounded-[8px] object-cover bg-gray-50 shrink-0" />
                             <div className="flex-1">
@@ -205,7 +228,8 @@ export function Navigation() {
                               <p className="font-sans font-bold text-[#FF6C84] text-[13px] mt-1">${product.price}</p>
                             </div>
                             <button
-                              onClick={() => {
+                              onClick={(e) => {
+                                e.stopPropagation();
                                 addToCart(product);
                                 setIsCartOpen(true);
                                 setIsSearchOpen(false);

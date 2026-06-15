@@ -86,7 +86,7 @@ export const products = [
 ];
 
 export function FeaturedProducts() {
-  const { addToCart } = useCart();
+  const { addToCart, setCurrentView, setSelectedProductId } = useCart();
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
 
   return (
@@ -101,7 +101,14 @@ export function FeaturedProducts() {
 
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-5">
           {products.map((product) => (
-            <div key={product.id} className="group flex flex-col bg-white rounded-[12px] shadow-[0_4px_16px_rgba(0,0,0,0.04)] relative overflow-hidden h-full">
+            <div 
+              key={product.id} 
+              onClick={() => {
+                setSelectedProductId(product.id);
+                setCurrentView('product-detail');
+              }}
+              className="group flex flex-col bg-white rounded-[12px] shadow-[0_4px_16px_rgba(0,0,0,0.04)] relative overflow-hidden h-full cursor-pointer hover:shadow-md transition-shadow duration-300"
+            >
               
               <div className="w-full h-[60%] bg-gray-50 overflow-hidden relative border-b border-pink-50 min-h-[180px]">
                 <img 
@@ -122,6 +129,7 @@ export function FeaturedProducts() {
                 <button 
                   onClick={(e) => {
                     e.preventDefault();
+                    e.stopPropagation();
                     if (isInWishlist(product.id)) {
                       removeFromWishlist(product.id);
                     } else {
@@ -173,7 +181,10 @@ export function FeaturedProducts() {
               {/* Slide-up Add to Cart button */}
               <div className="absolute bottom-3 left-3 right-3 translate-y-[150%] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-out z-30 hidden lg:block">
                 <button 
-                  onClick={() => addToCart(product)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    addToCart(product);
+                  }}
                   className="w-full bg-[#FF6C84] text-white font-sans text-[14px] font-semibold py-2.5 flex items-center justify-center rounded-full shadow-md"
                 >
                   Add to Cart
@@ -182,7 +193,10 @@ export function FeaturedProducts() {
               
               {/* Mobile always visible */}
               <button 
-                onClick={() => addToCart(product)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  addToCart(product);
+                }}
                 className="w-[calc(100%-24px)] bg-[#FF6C84] text-white font-sans text-[13px] font-semibold py-2.5 rounded-full lg:hidden absolute bottom-3 left-3 z-30 animate-none"
               >
                 Add to Cart

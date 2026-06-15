@@ -16,6 +16,10 @@ interface CartContextType {
   applyPromo: (code: string) => boolean;
   cartTotal: number;
   cartCount: number;
+  currentView: 'home' | 'product-detail' | 'checkout';
+  setCurrentView: (view: 'home' | 'product-detail' | 'checkout') => void;
+  selectedProductId: number | null;
+  setSelectedProductId: (id: number | null) => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -29,6 +33,13 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [promoCode, setPromoCode] = useState('');
   const [appliedCode, setAppliedCode] = useState('');
   const [discount, setDiscount] = useState(0);
+  const [currentView, setCurrentViewState] = useState<'home' | 'product-detail' | 'checkout'>('home');
+  const [selectedProductId, setSelectedProductId] = useState<number | null>(null);
+
+  const setCurrentView = (view: 'home' | 'product-detail' | 'checkout') => {
+    setCurrentViewState(view);
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
 
   useEffect(() => {
     localStorage.setItem('lumae_cart', JSON.stringify(cart));
@@ -102,6 +113,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         applyPromo,
         cartTotal,
         cartCount,
+        currentView,
+        setCurrentView,
+        selectedProductId,
+        setSelectedProductId,
       }}
     >
       {children}
