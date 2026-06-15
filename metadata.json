@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Lumae",
+  "description": "Premium beauty and skincare e-commerce store with a soft, warm pink palette.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
