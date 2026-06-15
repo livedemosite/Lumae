@@ -73,17 +73,17 @@ import prodAhaBha from '../assets/images/prod_aha_bha_1781531899853.jpg';
 import prodPeptideMist from '../assets/images/prod_peptide_mist_1781531915340.jpg';
 import prodRepairCream from '../assets/images/prod_repair_cream_1781531932707.jpg';
 
-const products = [
-  { id: 1, name: "Vitamin C Brightening Serum", price: 24.99, rating: 4.8, image: prodVitC, badge: "BESTSELLER" },
-  { id: 2, name: "Hyaluronic Acid Serum", price: 22.99, rating: 4.9, image: prodHyaluronic, badge: "BESTSELLER" },
-  { id: 3, name: "Glow Booster Serum", price: 27.99, rating: 4.7, image: prodGlow, badge: "BESTSELLER" },
-  { id: 4, name: "Retinol Night Serum", price: 29.99, rating: 4.8, image: prodRetinol, badge: "NEW" },
-  { id: 5, name: "Rose Water Toner", price: 18.99, rating: 4.9, image: prodRoseToner, badge: "BESTSELLER" },
-  { id: 6, name: "Brightening Eye Cream", price: 21.99, rating: 4.7, image: prodEyeCream, badge: "BESTSELLER" },
-  { id: 7, name: "Niacinamide Serum", price: 19.99, rating: 4.8, image: prodNiacinamide, badge: "BESTSELLER" },
-  { id: 8, name: "AHA/BHA Exfoliant", price: 23.99, rating: 4.9, image: prodAhaBha, badge: "BESTSELLER" },
-  { id: 9, name: "Peptide Face Mist", price: 20.99, rating: 4.8, image: prodPeptideMist, badge: "NEW" },
-  { id: 10, name: "Overnight Repair Cream", price: 26.99, rating: 4.9, image: prodRepairCream, badge: "NEW" },
+export const products = [
+  { id: 1, name: "Vitamin C Brightening Serum", price: 24.99, rating: 4.8, image: prodVitC, badge: "BESTSELLER", ingredients: ["Vitamin C", "Ferulic Acid", "Vitamin E"] },
+  { id: 2, name: "Hyaluronic Acid Serum", price: 22.99, rating: 4.9, image: prodHyaluronic, badge: "BESTSELLER", ingredients: ["Hyaluronic Acid", "Vitamin B5"] },
+  { id: 3, name: "Glow Booster Serum", price: 27.99, rating: 4.7, image: prodGlow, badge: "BESTSELLER", ingredients: ["Niacinamide", "Squalane", "Papaya Extract"] },
+  { id: 4, name: "Retinol Night Serum", price: 29.99, rating: 4.8, image: prodRetinol, badge: "NEW", ingredients: ["Retinol", "Peptides", "Ceramides"] },
+  { id: 5, name: "Rose Water Toner", price: 18.99, rating: 4.9, image: prodRoseToner, badge: "BESTSELLER", ingredients: ["Rose Water", "Aloe Vera", "Witch Hazel"] },
+  { id: 6, name: "Brightening Eye Cream", price: 21.99, rating: 4.7, image: prodEyeCream, badge: "BESTSELLER", ingredients: ["Caffeine", "Vitamin C", "Peptides"] },
+  { id: 7, name: "Niacinamide Serum", price: 19.99, rating: 4.8, image: prodNiacinamide, badge: "BESTSELLER", ingredients: ["Niacinamide", "Zinc PCA"] },
+  { id: 8, name: "AHA/BHA Exfoliant", price: 23.99, rating: 4.9, image: prodAhaBha, badge: "BESTSELLER", ingredients: ["Glycolic Acid", "Salicylic Acid", "Lactic Acid"] },
+  { id: 9, name: "Peptide Face Mist", price: 20.99, rating: 4.8, image: prodPeptideMist, badge: "NEW", ingredients: ["Peptides", "Green Tea", "Rose Water"] },
+  { id: 10, name: "Overnight Repair Cream", price: 26.99, rating: 4.9, image: prodRepairCream, badge: "NEW", ingredients: ["Ceramides", "Shea Butter", "Hyaluronic Acid"] },
 ];
 
 export function FeaturedProducts() {
