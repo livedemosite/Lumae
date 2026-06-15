@@ -25,32 +25,34 @@ export function CategoryGrid() {
   };
 
   return (
-    <section id="shop" className="py-24 bg-white scroll-mt-20">
+    <section id="shop" className="py-20 bg-white scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-serif text-3xl md:text-5xl font-bold text-center text-text-charcoal mb-4">
+        <h2 className="font-serif text-[40px] font-bold text-center text-[#1A1A1A]">
           Shop by Concern
         </h2>
-        <p className="font-sans text-center text-gray-500 mb-16 max-w-sm mx-auto text-sm">
-          Targeted clean formulas packed with active organic botanical extracts.
+        <p className="font-sans text-center text-[#888888] mb-12 text-[16px] max-w-sm mx-auto">
+          Find your perfect routine
         </p>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((cat) => (
             <a 
               href="#best-sellers" 
               onClick={handleScrollToFeatured}
               key={cat.id} 
-              className="group flex flex-col items-center bg-bg-pink/40 rounded-2xl p-4 transition-all hover:bg-bg-pink/80 hover:shadow-lg hover:shadow-pink-100/50"
+              className="group flex flex-col items-center bg-white rounded-[16px] p-0 transition-all duration-300 hover:-translate-y-1 block shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.12)] overflow-hidden"
             >
-              <div className="w-full aspect-[4/3] rounded-xl overflow-hidden mb-6 bg-white shrink-0">
+              <div className="w-full aspect-[1/1] overflow-hidden bg-gray-50 shrink-0">
                 <img 
                   src={cat.image} 
                   alt={cat.name} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-out"
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <h3 className="font-sans font-semibold text-text-charcoal text-base md:text-lg mb-2 text-center">{cat.name}</h3>
-              <span className="font-sans text-primary-pink text-xs font-semibold tracking-wide uppercase">Shop Concern</span>
+              <div className="py-5 text-center flex flex-col items-center">
+                <h3 className="font-sans font-semibold text-[#1A1A1A] text-[16px] m-0">{cat.name}</h3>
+                <span className="font-sans text-[#FF6C84] text-[14px] font-semibold mt-1 inline-block">Shop Now &rarr;</span>
+              </div>
             </a>
           ))}
         </div>
@@ -72,16 +74,16 @@ import prodPeptideMist from '../assets/images/prod_peptide_mist_1781531915340.jp
 import prodRepairCream from '../assets/images/prod_repair_cream_1781531932707.jpg';
 
 const products = [
-  { id: 1, name: "Vitamin C Serum", price: 24.99, rating: 4.8, image: prodVitC, tag: "Brightening", badge: "Best Seller" },
-  { id: 2, name: "Hyaluronic Acid Serum", price: 22.99, rating: 4.9, image: prodHyaluronic, tag: "Plumping", badge: "Hydra Lock" },
-  { id: 3, name: "Glow Booster Serum", price: 27.99, rating: 4.7, image: prodGlow, tag: "Dewy Radial", badge: "Award Winner" },
-  { id: 4, name: "Retinol Night Serum", price: 29.99, rating: 4.8, image: prodRetinol, tag: "Fine Lines", badge: "Formulators Pick" },
-  { id: 5, name: "Rose Water Toner", price: 18.99, rating: 4.9, image: prodRoseToner, tag: "Balancing", badge: "Highly Rated" },
-  { id: 6, name: "Brightening Eye Cream", price: 21.99, rating: 4.7, image: prodEyeCream, tag: "Soothe Puff", badge: "Clean Care" },
-  { id: 7, name: "Niacinamide Serum", price: 19.99, rating: 4.8, image: prodNiacinamide, tag: "Oil Control", badge: "Skin Uniform" },
-  { id: 8, name: "AHA/BHA Exfoliant", price: 23.99, rating: 4.9, image: prodAhaBha, tag: "Pore Refiner", badge: "Derm Choice" },
-  { id: 9, name: "Peptide Face Mist", price: 20.99, rating: 4.8, image: prodPeptideMist, tag: "Instant Mist", badge: "New Arrival" },
-  { id: 10, name: "Overnight Repair Cream", price: 26.99, rating: 4.9, image: prodRepairCream, tag: "Cell Barrier", badge: "Rich Butter" },
+  { id: 1, name: "Vitamin C Brightening Serum", price: 24.99, rating: 4.8, image: prodVitC, badge: "BESTSELLER" },
+  { id: 2, name: "Hyaluronic Acid Serum", price: 22.99, rating: 4.9, image: prodHyaluronic, badge: "BESTSELLER" },
+  { id: 3, name: "Glow Booster Serum", price: 27.99, rating: 4.7, image: prodGlow, badge: "BESTSELLER" },
+  { id: 4, name: "Retinol Night Serum", price: 29.99, rating: 4.8, image: prodRetinol, badge: "NEW" },
+  { id: 5, name: "Rose Water Toner", price: 18.99, rating: 4.9, image: prodRoseToner, badge: "BESTSELLER" },
+  { id: 6, name: "Brightening Eye Cream", price: 21.99, rating: 4.7, image: prodEyeCream, badge: "BESTSELLER" },
+  { id: 7, name: "Niacinamide Serum", price: 19.99, rating: 4.8, image: prodNiacinamide, badge: "BESTSELLER" },
+  { id: 8, name: "AHA/BHA Exfoliant", price: 23.99, rating: 4.9, image: prodAhaBha, badge: "BESTSELLER" },
+  { id: 9, name: "Peptide Face Mist", price: 20.99, rating: 4.8, image: prodPeptideMist, badge: "NEW" },
+  { id: 10, name: "Overnight Repair Cream", price: 26.99, rating: 4.9, image: prodRepairCream, badge: "NEW" },
 ];
 
 export function FeaturedProducts() {
@@ -89,36 +91,35 @@ export function FeaturedProducts() {
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
 
   return (
-    <section id="best-sellers" className="py-24 bg-gray-50/50 scroll-mt-20">
+    <section id="best-sellers" className="py-20 bg-[#FFEFED] scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-3xl md:text-5xl font-bold text-text-charcoal mb-4">
+        <div className="text-center mb-[80px]">
+          <h2 className="font-serif text-[40px] font-bold text-[#1A1A1A] mb-1 leading-none">
             Best Sellers
           </h2>
-          <p className="font-sans text-gray-500 text-lg">The glow routine, curated.</p>
+          <p className="font-sans text-[#888888] text-[16px] italic">The glow routine, curated.</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-5">
           {products.map((product) => (
-            <div key={product.id} className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm shadow-pink-100/30 border border-pink-50 relative hover:shadow-lg transition-all duration-300">
-              <div className="aspect-square bg-gray-50 overflow-hidden relative">
+            <div key={product.id} className="group flex flex-col bg-white rounded-[12px] shadow-[0_4px_16px_rgba(0,0,0,0.04)] relative overflow-hidden h-full">
+              
+              <div className="w-full h-[60%] bg-gray-50 overflow-hidden relative border-b border-pink-50 min-h-[180px]">
                 <img 
                   src={product.image} 
                   alt={product.name}
-                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-400 ease-out"
                   referrerPolicy="no-referrer"
                 />
                 
-                {/* Premium Small Curated Badge */}
                 {product.badge && (
-                  <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full border border-pink-100 shadow-sm z-10">
-                    <span className="font-sans text-[10px] font-bold text-text-charcoal uppercase tracking-wider">
+                  <div className="absolute top-2 left-2 bg-[#FF6C84] px-2 py-0.5 rounded-[4px] z-10">
+                    <span className="font-sans text-[10px] font-bold text-white uppercase">
                       {product.badge}
                     </span>
                   </div>
                 )}
 
-                {/* Wishlist Button */}
                 <button 
                   onClick={(e) => {
                     e.preventDefault();
@@ -128,49 +129,47 @@ export function FeaturedProducts() {
                       addToWishlist(product);
                     }
                   }}
-                  className={`absolute top-3 right-3 z-10 bg-white/90 backdrop-blur-md p-2 rounded-full shadow-sm transition-all duration-300 hover:scale-110 ${isInWishlist(product.id) ? 'text-primary-pink' : 'text-gray-400 hover:text-primary-pink'}`}
+                  className={`absolute top-2 right-2 z-10 bg-white/90 backdrop-blur-md p-1.5 rounded-full shadow-sm transition-all duration-300 hover:scale-110 ${isInWishlist(product.id) ? 'text-primary-pink' : 'text-gray-400 hover:text-primary-pink'}`}
                   aria-label="Toggle wishlist"
                 >
-                  <Heart className={`w-4 h-4 ${isInWishlist(product.id) ? 'fill-current' : ''}`} />
+                  <Heart className={`w-[14px] h-[14px] ${isInWishlist(product.id) ? 'fill-[#FF6C84] text-[#FF6C84]' : ''}`} />
                 </button>
-
-                {/* Desktop Hover Add to Cart Overlay */}
-                <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 flex items-end justify-center pb-4 transition-all duration-300 z-0">
-                  <button 
-                    onClick={() => addToCart(product)}
-                    className="bg-primary-pink text-white font-sans text-xs font-bold px-6 py-2.5 rounded-full shadow-lg transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 hover:bg-opacity-95"
-                  >
-                    Add to Cart
-                  </button>
-                </div>
               </div>
               
-              <div className="p-5 flex-1 flex flex-col justify-between">
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="font-sans text-[10px] font-bold text-primary-pink uppercase tracking-widest">
-                      {product.tag}
-                    </span>
-                    <div className="flex space-x-0.5 items-center">
-                      <Star className="w-3 h-3 text-accent-gold fill-accent-gold" />
-                      <span className="text-[10px] text-gray-500 font-sans font-medium ml-1">({product.rating})</span>
-                    </div>
-                  </div>
-                  <h3 className="font-sans font-semibold text-text-charcoal text-sm leading-snug tracking-tight mb-2">
-                    {product.name}
-                  </h3>
+              <div className="p-3 flex-1 flex flex-col relative z-20 bg-white">
+                <div className="flex gap-0.5 mb-1.5 text-[#C9A84C] items-center">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-[12px] h-[12px] fill-current" />
+                  ))}
+                  <span className="font-sans text-[12px] text-[#C9A84C] font-semibold ml-1">{product.rating}</span>
                 </div>
-                <div className="pt-2 flex items-center justify-between mt-auto">
-                  <span className="font-sans font-bold text-text-charcoal text-base">${product.price}</span>
-                  {/* Quick-add for mobile view since hover is hidden */}
-                  <button 
-                    onClick={() => addToCart(product)}
-                    className="sm:hidden text-primary-pink font-sans font-bold text-xs bg-bg-pink px-3 py-1 rounded-full active:scale-95 transition-transform"
-                  >
-                    Add
-                  </button>
+                
+                <h3 className="font-sans font-semibold text-[#1A1A1A] text-[14px] mb-2 leading-[1.3] line-clamp-2">
+                  {product.name}
+                </h3>
+                
+                <div className="mt-auto">
+                  <span className="font-sans font-bold text-[#FF6C84] text-[16px]">${product.price}</span>
                 </div>
               </div>
+
+              {/* Slide-up Add to Cart button */}
+              <div className="absolute bottom-0 left-0 right-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-30 hidden lg:block">
+                <button 
+                  onClick={() => addToCart(product)}
+                  className="w-full bg-[#FF6C84] text-white font-sans text-[14px] font-semibold py-3 flex items-center justify-center rounded-b-[12px]"
+                >
+                  Add to Cart
+                </button>
+              </div>
+              
+              {/* Mobile always visible or semi-visible add button since hover is tricky */}
+              <button 
+                onClick={() => addToCart(product)}
+                className="w-full bg-[#FF6C84] text-white font-sans text-[13px] font-semibold py-2.5 rounded-b-[12px] lg:hidden absolute bottom-0 left-0 right-0 z-30"
+              >
+                Add
+              </button>
             </div>
           ))}
         </div>

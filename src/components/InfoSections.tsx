@@ -1,56 +1,63 @@
 import React from 'react';
-import { Sparkles, Droplets, Moon, CheckCircle2 } from 'lucide-react';
+import { Sparkles, Droplets, Moon } from 'lucide-react';
 import ingredientsImg from '../assets/images/ingredients_flatlay_1781531671670.jpg';
 import aboutImg from '../assets/images/about_lifestyle_1781531690902.jpg';
 
 export function HowItWorks() {
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-serif text-3xl md:text-4xl font-bold text-center text-text-charcoal mb-16">
+    <section className="py-20 bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <h2 className="font-serif text-[40px] font-bold text-center text-[#1A1A1A] mb-16">
           Your 3-Step Glow Routine
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
-          {/* Step 1 */}
-          <div className="flex flex-col items-center text-center">
-            <div className="w-20 h-20 rounded-full bg-bg-pink flex items-center justify-center mb-6 relative">
-              <Sparkles className="w-8 h-8 text-primary-pink" />
-              <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-accent-gold flex items-center justify-center text-white font-sans font-bold shadow-sm">
-                1
-              </div>
-            </div>
-            <h3 className="font-sans font-bold text-xl text-text-charcoal mb-3">Cleanse</h3>
-            <p className="font-sans text-gray-600 leading-relaxed">
-              Start with a fresh canvas. Gently remove impurities without stripping natural oils.
-            </p>
-          </div>
+        
+        <div className="relative">
+          {/* Dashed connector line for desktop */}
+          <div className="hidden md:block absolute top-[48px] left-[15%] right-[15%] border-t-2 border-dashed border-[#FFB3C0] z-0"></div>
           
-          {/* Step 2 */}
-          <div className="flex flex-col items-center text-center">
-            <div className="w-20 h-20 rounded-full bg-bg-pink flex items-center justify-center mb-6 relative">
-              <Droplets className="w-8 h-8 text-primary-pink" />
-              <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-accent-gold flex items-center justify-center text-white font-sans font-bold shadow-sm">
-                2
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
+            {/* Step 1 */}
+            <div className="flex flex-col items-center text-center">
+              <div className="relative w-24 h-24 flex items-center justify-center mb-6">
+                <span className="absolute font-serif text-[80px] text-[#C9A84C] opacity-20 -top-2 z-0 font-bold leading-none select-none">
+                  01
+                </span>
+                <Droplets className="w-12 h-12 text-[#FF6C84] relative z-10" strokeWidth={1.5} />
               </div>
+              <h3 className="font-sans font-bold text-[20px] text-[#1A1A1A] mb-2">Cleanse</h3>
+              <p className="font-sans text-[15px] text-[#666666] leading-[1.6]">
+                Start with a fresh canvas. Gently remove impurities without stripping natural oils.
+              </p>
             </div>
-            <h3 className="font-sans font-bold text-xl text-text-charcoal mb-3">Serum</h3>
-            <p className="font-sans text-gray-600 leading-relaxed">
-              Target your concerns. Press active ingredients deep into the skin for maximum glow.
-            </p>
-          </div>
+            
+            {/* Step 2 */}
+            <div className="flex flex-col items-center text-center">
+              <div className="relative w-24 h-24 flex items-center justify-center mb-6">
+                <span className="absolute font-serif text-[80px] text-[#C9A84C] opacity-20 -top-2 z-0 font-bold leading-none select-none">
+                  02
+                </span>
+                {/* Note: In actual implementation, maybe a different icon for serum, but Droplets/Sparkles works */}
+                <Sparkles className="w-12 h-12 text-[#FF6C84] relative z-10" strokeWidth={1.5} />
+              </div>
+              <h3 className="font-sans font-bold text-[20px] text-[#1A1A1A] mb-2">Serum</h3>
+              <p className="font-sans text-[15px] text-[#666666] leading-[1.6]">
+                Target your concerns. Press active ingredients deep into skin for maximum glow and absorption.
+              </p>
+            </div>
 
-          {/* Step 3 */}
-          <div className="flex flex-col items-center text-center">
-            <div className="w-20 h-20 rounded-full bg-bg-pink flex items-center justify-center mb-6 relative">
-              <Moon className="w-8 h-8 text-primary-pink" />
-              <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-accent-gold flex items-center justify-center text-white font-sans font-bold shadow-sm">
-                3
+            {/* Step 3 */}
+            <div className="flex flex-col items-center text-center">
+              <div className="relative w-24 h-24 flex items-center justify-center mb-6">
+                <span className="absolute font-serif text-[80px] text-[#C9A84C] opacity-20 -top-2 z-0 font-bold leading-none select-none">
+                  03
+                </span>
+                <Moon className="w-12 h-12 text-[#FF6C84] relative z-10" strokeWidth={1.5} />
               </div>
+              <h3 className="font-sans font-bold text-[20px] text-[#1A1A1A] mb-2">Moisturize</h3>
+              <p className="font-sans text-[15px] text-[#666666] leading-[1.6]">
+                Lock it all in. Seal in hydration and protect your skin all day.
+              </p>
             </div>
-            <h3 className="font-sans font-bold text-xl text-text-charcoal mb-3">Moisturize</h3>
-            <p className="font-sans text-gray-600 leading-relaxed">
-              Lock it all in. Seal in hydration and protect your skin's delicate moisture barrier.
-            </p>
           </div>
         </div>
       </div>
@@ -60,48 +67,62 @@ export function HowItWorks() {
 
 export function Ingredients() {
   return (
-    <section id="ingredients" className="bg-bg-pink border-y border-pink-100 scroll-mt-20">
-      <div className="flex flex-col lg:flex-row">
-        {/* Left Half - Image */}
-        <div className="lg:w-1/2 min-h-[400px] relative">
-          <img 
-            src={ingredientsImg} 
-            alt="Natural skincare ingredients flat-lay" 
-            className="absolute inset-0 w-full h-full object-cover"
-            referrerPolicy="no-referrer"
-          />
-        </div>
-        
-        {/* Right Half - Content */}
-        <div className="lg:w-1/2 p-12 lg:p-24 flex flex-col justify-center">
-          <div className="max-w-lg">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-text-charcoal mb-10">
-              Why Lumae Works
-            </h2>
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <CheckCircle2 className="w-6 h-6 text-accent-gold shrink-0 mt-0.5" />
-                <p className="font-sans text-lg text-text-charcoal">
-                  <strong className="font-semibold px-1">Vitamin C</strong> — Brightens and evens skin tone
-                </p>
+    <section id="ingredients" className="bg-[#FFEFED] py-20 scroll-mt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+          {/* Left Half - Image (45%) */}
+          <div className="lg:w-[45%] w-full">
+            <div className="w-full aspect-[4/5] md:aspect-square relative rounded-[24px] overflow-hidden shadow-[0_16px_40px_rgba(0,0,0,0.06)] bg-white">
+              <img 
+                src={ingredientsImg} 
+                alt="Natural skincare ingredients flat-lay" 
+                className="absolute inset-0 w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          </div>
+          
+          {/* Right Half - Content (55%) */}
+          <div className="lg:w-[55%] w-full flex flex-col justify-center">
+            <div className="max-w-lg">
+              <h2 className="font-serif text-[40px] font-bold text-[#1A1A1A] leading-tight mb-1">
+                Why Lumae Works
+              </h2>
+              <p className="font-sans text-[16px] text-[#888888] italic mb-8">
+                Every ingredient chosen for a reason.
+              </p>
+              
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3">
+                  <span className="text-[#C9A84C] text-[20px] font-bold leading-none mt-1">✓</span>
+                  <p className="font-sans text-[15px] text-[#666666] m-0">
+                    <strong className="font-bold text-[#1A1A1A]">Vitamin C</strong> — Brightens and evens skin tone
+                  </p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <span className="text-[#C9A84C] text-[20px] font-bold leading-none mt-1">✓</span>
+                  <p className="font-sans text-[15px] text-[#666666] m-0">
+                    <strong className="font-bold text-[#1A1A1A]">Hyaluronic Acid</strong> — Deep 72-hour hydration
+                  </p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <span className="text-[#C9A84C] text-[20px] font-bold leading-none mt-1">✓</span>
+                  <p className="font-sans text-[15px] text-[#666666] m-0">
+                    <strong className="font-bold text-[#1A1A1A]">Niacinamide</strong> — Minimizes pores and controls oil
+                  </p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <span className="text-[#C9A84C] text-[20px] font-bold leading-none mt-1">✓</span>
+                  <p className="font-sans text-[15px] text-[#666666] m-0">
+                    <strong className="font-bold text-[#1A1A1A]">Peptides</strong> — Firms skin and reduces fine lines
+                  </p>
+                </div>
               </div>
-              <div className="flex items-start space-x-4">
-                <CheckCircle2 className="w-6 h-6 text-accent-gold shrink-0 mt-0.5" />
-                <p className="font-sans text-lg text-text-charcoal">
-                  <strong className="font-semibold px-1">Hyaluronic Acid</strong> — Deep 72-hour hydration
-                </p>
-              </div>
-              <div className="flex items-start space-x-4">
-                <CheckCircle2 className="w-6 h-6 text-accent-gold shrink-0 mt-0.5" />
-                <p className="font-sans text-lg text-text-charcoal">
-                  <strong className="font-semibold px-1">Niacinamide</strong> — Minimizes pores and controls oil
-                </p>
-              </div>
-              <div className="flex items-start space-x-4">
-                <CheckCircle2 className="w-6 h-6 text-accent-gold shrink-0 mt-0.5" />
-                <p className="font-sans text-lg text-text-charcoal">
-                  <strong className="font-semibold px-1">Peptides</strong> — Firms skin and reduces fine lines
-                </p>
+
+              <div className="mt-8">
+                <a href="#" className="font-sans text-[15px] text-[#FF6C84] underline font-medium hover:opacity-80 transition-opacity">
+                  See All Ingredients &rarr;
+                </a>
               </div>
             </div>
           </div>
@@ -113,32 +134,38 @@ export function Ingredients() {
 
 export function AboutSection() {
   return (
-    <section id="about" className="bg-white py-20 lg:py-0 scroll-mt-20">
-      <div className="flex flex-col-reverse lg:flex-row">
-        {/* Left Half - Content */}
-        <div className="lg:w-1/2 p-8 lg:p-24 flex flex-col justify-center items-center lg:items-start text-center lg:text-left bg-white">
-          <div className="max-w-md">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-text-charcoal mb-6">
-              The Lumae Story
-            </h2>
-            <p className="font-sans text-gray-600 text-lg leading-relaxed mb-8">
-              Lumae was created for people who want real results without the overwhelm. We believe great skin starts with the right ingredients — clean, effective, and gentle on every skin type.
-            </p>
-            <a href="#" className="font-sans font-semibold text-primary-pink hover:text-opacity-80 transition-opacity text-lg inline-flex items-center group">
-              Learn More 
-              <span className="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
-            </a>
+    <section id="about" className="bg-white py-20 scroll-mt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+          {/* Left Half - Image (40%) */}
+          <div className="lg:w-[40%] w-full">
+            <div className="w-full aspect-[4/5] relative rounded-[24px] overflow-hidden shadow-[0_16px_40px_rgba(0,0,0,0.06)] bg-white">
+              <img 
+                src={aboutImg} 
+                alt="Woman with glowing skin" 
+                className="absolute inset-0 w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </div>
           </div>
-        </div>
-        
-        {/* Right Half - Image */}
-        <div className="lg:w-1/2 min-h-[400px] lg:min-h-[600px] relative">
-          <img 
-            src={aboutImg} 
-            alt="Woman with glowing skin" 
-            className="absolute inset-0 w-full h-full object-cover"
-            referrerPolicy="no-referrer"
-          />
+
+          {/* Right Half - Content (60%) */}
+          <div className="lg:w-[60%] w-full flex flex-col justify-center">
+            <div className="max-w-lg">
+              <h2 className="font-serif text-[40px] font-bold text-[#1A1A1A] mb-6 leading-tight">
+                The Lumae Story
+              </h2>
+              <p className="font-sans text-[16px] text-[#555555] leading-[1.7] mb-4">
+                Lumae was created for people who want real results without the overwhelm. We believe great skin starts with the right ingredients — clean, effective, and gentle on every skin type.
+              </p>
+              <p className="font-sans text-[16px] text-[#555555] leading-[1.7] mb-6">
+                No unnecessary fillers. No confusing routines. Just science-backed formulas that actually work — so you can spend less time worrying and more time glowing.
+              </p>
+              <a href="#" className="font-sans font-semibold text-[#FF6C84] hover:opacity-80 transition-opacity text-[15px] underline inline-block mt-2">
+                Learn More About Us &rarr;
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

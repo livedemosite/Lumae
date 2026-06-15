@@ -16,29 +16,32 @@ const beforeAfterData = [
 
 export function BeforeAfter() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-text-charcoal mb-4">
-            Real Results from Real Customers
+        <div className="text-center mb-12">
+          <h2 className="font-serif text-[40px] font-bold text-[#1A1A1A] mb-2 leading-none">
+            Real Results. No Filters.
           </h2>
-          <p className="font-sans text-gray-500 italic text-lg">No filters. Just Lumae.</p>
+          <p className="font-sans text-[#888888] text-[16px]">From the Lumae community.</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {beforeAfterData.map((item) => (
-            <div key={item.id} className="relative rounded-2xl overflow-hidden shadow-lg shadow-pink-100 aspect-square">
+            <div key={item.id} className="relative rounded-[16px] overflow-hidden aspect-square bg-gray-50 border border-[#FFEFED]">
               <img 
                 src={item.image} 
                 alt="Before and after skincare results" 
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white font-sans text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                Before
+              {/* Bottom gradient to ensure text readability */}
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+              
+              <div className="absolute bottom-3 left-3 text-white font-sans text-[11px] font-bold tracking-wider rounded-sm z-10 drop-shadow-sm">
+                BEFORE
               </div>
-              <div className="absolute top-4 right-4 bg-primary-pink/90 backdrop-blur-sm text-white font-sans text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
-                After
+              <div className="absolute bottom-3 right-3 bg-[#FF6C84] text-white font-sans text-[11px] font-bold px-2 py-1 rounded-[4px] tracking-wider z-10">
+                AFTER
               </div>
             </div>
           ))}
@@ -59,26 +62,26 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section id="reviews" className="py-24 bg-white border-t border-gray-50 scroll-mt-20">
+    <section id="reviews" className="py-20 bg-white border-t border-gray-50 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-serif text-3xl md:text-4xl font-bold text-center text-text-charcoal mb-16">
-          What Our Customers Say
+        <h2 className="font-serif text-[40px] font-bold text-center text-[#1A1A1A] mb-12">
+          Glow Notes
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((review) => (
-            <div key={review.id} className="bg-bg-pink p-8 rounded-3xl shadow-sm shadow-pink-100 flex flex-col h-full transform transition-transform hover:-translate-y-1">
+            <div key={review.id} className="bg-[#FFEFED] p-8 rounded-[24px] flex flex-col h-full transform transition-transform hover:-translate-y-1">
               <div className="flex space-x-1 mb-6">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-accent-gold fill-accent-gold" />
+                  <Star key={i} className="w-[18px] h-[18px] text-[#C9A84C] fill-[#C9A84C]" />
                 ))}
               </div>
-              <p className="font-sans text-text-charcoal leading-relaxed mb-8 flex-1 italic text-lg">
+              <p className="font-sans text-[#1A1A1A] leading-[1.6] mb-8 flex-1 italic text-[16px]">
                 "{review.text}"
               </p>
               <div>
-                <p className="font-sans font-bold text-text-charcoal">{review.name}</p>
-                <p className="font-sans text-gray-500 text-sm mt-1">{review.location}</p>
+                <p className="font-sans font-bold text-[#1A1A1A] text-[15px]">{review.name}</p>
+                <p className="font-sans text-[#888888] text-[13px] mt-0.5">{review.location}</p>
               </div>
             </div>
           ))}
@@ -100,48 +103,43 @@ export function Newsletter() {
   };
 
   return (
-    <section className="bg-bg-pink py-24 px-4 border-t border-pink-100">
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="font-serif text-3xl md:text-5xl font-bold text-text-charcoal mb-6">
-          Join the Glow Club
+    <section className="bg-[#FFEFED] py-20 px-4">
+      <div className="max-w-2xl mx-auto text-center">
+        <h2 className="font-serif text-[40px] font-bold text-[#1A1A1A] mb-4 leading-none">
+          The Glow Club
         </h2>
-        <p className="font-sans text-gray-600 text-lg mb-10">
-          Get 15% off your first order + early access to new launches.
+        <p className="font-sans text-[#666666] text-[16px] mb-10">
+          Subscribe for early access to new launches and receive 15% off your first order.
         </p>
         
         {success ? (
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-white border border-pink-100 text-text-charcoal max-w-md mx-auto p-8 rounded-3xl shadow-lg shadow-pink-100/50"
+            className="bg-white border border-[#FFEFED] text-[#1A1A1A] max-w-md mx-auto p-8 rounded-[24px] shadow-sm"
           >
-            <h4 className="font-serif text-2xl font-bold text-primary-pink mb-2">Welcome to the Club! 🌸</h4>
-            <p className="font-sans text-gray-600">
+            <h4 className="font-serif text-[24px] font-bold text-[#FF6C84] mb-2">Welcome to the Club! 🌸</h4>
+            <p className="font-sans text-[#666666] text-[15px]">
               Check your inbox. We've sent your exclusive 15% off coupon code & secret glow guides.
             </p>
           </motion.div>
         ) : (
-          <form className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto mb-4" onSubmit={handleSubmit}>
+          <form className="flex flex-col sm:flex-row gap-3 max-w-[500px] mx-auto mb-4" onSubmit={handleSubmit}>
             <input 
               type="email" 
               placeholder="Your email address" 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 bg-white border border-pink-200 rounded-full px-6 py-4 font-sans text-text-charcoal outline-none focus:border-primary-pink focus:ring-1 focus:ring-primary-pink transition-all text-[15px]"
+              className="flex-1 bg-white border border-[#FFB3C0] rounded-full px-6 py-3.5 font-sans text-[#1A1A1A] outline-none focus:border-[#FF6C84] transition-all text-[15px]"
               required
             />
             <button 
               type="submit" 
-              className="bg-primary-pink text-white font-sans font-bold px-10 py-4 rounded-full border-2 border-accent-gold/40 hover:bg-opacity-90 transition-all shrink-0 tracking-wide text-sm"
+              className="bg-[#FF6C84] text-white font-sans font-bold px-8 py-3.5 rounded-full hover:brightness-105 transition-all shrink-0 text-[15px] shadow-sm"
             >
               Subscribe
             </button>
           </form>
-        )}
-        {!success && (
-          <p className="font-sans text-sm text-gray-400">
-            No spam. Unsubscribe anytime.
-          </p>
         )}
       </div>
     </section>
