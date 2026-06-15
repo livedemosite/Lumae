@@ -83,7 +83,7 @@ export function TrustBar() {
   return (
     <div className="bg-white py-4 border-b border-[#FFE0E4] w-full overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex overflow-x-auto lg:overflow-visible hide-scrollbar whitespace-nowrap items-center justify-between pb-2 md:pb-0">
+        <div className="flex overflow-x-auto lg:overflow-hidden justify-start lg:justify-between items-center w-full flex-nowrap pb-2 lg:pb-0 hide-scrollbar gap-6 lg:gap-0">
           {items.map((item, index) => (
             <React.Fragment key={index}>
               <div className="flex items-center space-x-2 shrink-0">
@@ -94,7 +94,7 @@ export function TrustBar() {
                 <span className="font-sans text-[13px] text-[#1A1A1A] font-medium">{item}</span>
               </div>
               {index < items.length - 1 && (
-                <span className="text-[#FFE0E4] px-4 md:px-0 shrink-0">|</span>
+                <span className="text-[#FFE0E4] shrink-0 select-none hidden lg:inline">|</span>
               )}
             </React.Fragment>
           ))}

@@ -183,9 +183,9 @@ export function FeaturedProducts() {
               {/* Mobile always visible */}
               <button 
                 onClick={() => addToCart(product)}
-                className="w-[calc(100%-24px)] bg-[#FF6C84] text-white font-sans text-[13px] font-semibold py-2.5 rounded-full lg:hidden absolute bottom-3 left-3 z-30"
+                className="w-[calc(100%-24px)] bg-[#FF6C84] text-white font-sans text-[13px] font-semibold py-2.5 rounded-full lg:hidden absolute bottom-3 left-3 z-30 animate-none"
               >
-                Add Option
+                Add to Cart
               </button>
             </div>
           ))}
