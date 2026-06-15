@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingCart, Menu, X, Heart, MapPin, Phone, Facebook, Instagram, Twitter, Youtube, Send, Search } from 'lucide-react';
+import { ShoppingBag, Menu, X, Heart, MapPin, Phone, Facebook, Instagram, Twitter, Youtube, Send, Search } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
 import { motion, AnimatePresence } from 'motion/react';
@@ -135,7 +135,7 @@ export function Navigation() {
                 className="text-text-charcoal hover:text-primary-pink transition-colors relative p-2"
                 aria-label="Open cart"
               >
-                <ShoppingCart className="w-5 h-5 md:w-6 md:h-6" />
+                <ShoppingBag className="w-5 h-5 md:w-6 md:h-6" />
                 {cartCount > 0 && (
                   <motion.span 
                     initial={{ scale: 0 }}
@@ -210,7 +210,7 @@ export function Navigation() {
                                 setIsCartOpen(true);
                                 setIsSearchOpen(false);
                               }}
-                              className="bg-[#FFEFED] hover:bg-[#FF6C84] text-[#FF6C84] hover:text-white transition-colors px-4 py-2 rounded-full font-sans text-[12px] font-bold shrink-0 shadow-sm"
+                              className="bg-[#FF6C84] hover:brightness-105 text-white transition-colors px-4 py-2 rounded-full font-sans text-[12px] font-bold shrink-0 shadow-sm"
                             >
                               Add
                             </button>
@@ -308,17 +308,17 @@ export function Footer() {
 
             <h4 className="font-sans font-bold text-[15px] text-white mt-6">Stay Connected</h4>
             <div className="flex space-x-3 mt-3">
-              <a href="#" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-primary-pink hover:text-primary-pink transition-all duration-300">
-                <Facebook className="w-4 h-4 fill-current" />
+              <a href="#" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-primary-pink transition-all duration-300 group">
+                <Facebook className="w-4 h-4 text-white group-hover:text-primary-pink group-hover:fill-primary-pink transition-colors" />
               </a>
-              <a href="#" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-primary-pink hover:text-primary-pink transition-all duration-300">
-                <Instagram className="w-4 h-4" />
+              <a href="#" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-primary-pink transition-all duration-300 group">
+                <Instagram className="w-4 h-4 text-white group-hover:text-primary-pink transition-colors" />
               </a>
-              <a href="#" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-primary-pink hover:text-primary-pink transition-all duration-300">
-                <Twitter className="w-4 h-4 fill-current" />
+              <a href="#" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-primary-pink transition-all duration-300 group">
+                <Twitter className="w-4 h-4 text-white group-hover:text-primary-pink group-hover:fill-primary-pink transition-colors" />
               </a>
-              <a href="#" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-primary-pink hover:text-primary-pink transition-all duration-300">
-                <Youtube className="w-4 h-4" />
+              <a href="#" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-primary-pink transition-all duration-300 group">
+                <Youtube className="w-4 h-4 text-white group-hover:text-primary-pink transition-colors" />
               </a>
             </div>
           </div>
@@ -354,19 +354,30 @@ export function Footer() {
             <h4 className="font-sans font-bold text-[15px] text-white mb-4">Contact Us</h4>
             <div className="flex flex-col space-y-2 leading-[2.2]">
               <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-primary-pink shrink-0 mt-1" />
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="shrink-0 mt-0.5">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#FF6C84" strokeWidth="1.8"/>
+                  <circle cx="12" cy="9" r="2.5" stroke="#FF6C84" strokeWidth="1.8"/>
+                </svg>
                 <span className="font-sans text-[14px] text-[#999999]">123 Demo Street, London, UK</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-primary-pink shrink-0" />
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="shrink-0">
+                  <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" stroke="#FF6C84" strokeWidth="1.8"/>
+                </svg>
                 <span className="font-sans text-[14px] text-[#999999]">001 123 4789</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Send className="w-5 h-5 text-primary-pink shrink-0" />
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="shrink-0">
+                  <rect x="3" y="5" width="18" height="14" rx="2" stroke="#FF6C84" strokeWidth="1.8"/>
+                  <path d="M3 7l9 6 9-6" stroke="#FF6C84" strokeWidth="1.8" strokeLinecap="round"/>
+                </svg>
                 <span className="font-sans text-[14px] text-[#999999]">hello@lumae.co</span>
               </div>
               <div className="flex items-center space-x-3 pt-1">
-                <div className="w-5 h-5 flex items-center justify-center text-primary-pink shrink-0"><span className="text-[18px]">🕐</span></div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="shrink-0">
+                  <circle cx="12" cy="12" r="9" stroke="#FF6C84" strokeWidth="1.8"/>
+                  <path d="M12 7v5l3 3" stroke="#FF6C84" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
                 <span className="font-sans text-[13px] text-[#999999]">Mon–Sat: 9AM–9PM | Sun: 10AM–6PM</span>
               </div>
             </div>

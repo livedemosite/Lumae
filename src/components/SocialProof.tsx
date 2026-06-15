@@ -1,5 +1,4 @@
 import React from 'react';
-import { Star } from 'lucide-react';
 import { motion } from 'motion/react';
 
 import ba1 from '../assets/images/before_after_1_1781531717410.jpg';
@@ -16,7 +15,7 @@ const beforeAfterData = [
 
 export function BeforeAfter() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 md:py-[80px] bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="font-serif text-[40px] font-bold text-[#1A1A1A] mb-2 leading-none">
@@ -27,20 +26,20 @@ export function BeforeAfter() {
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {beforeAfterData.map((item) => (
-            <div key={item.id} className="relative rounded-[16px] overflow-hidden aspect-square bg-gray-50 border border-[#FFEFED]">
+            <div key={item.id} className="relative rounded-[16px] overflow-hidden aspect-[3/4] bg-gray-50 border border-[#FFEFED]">
               <img 
                 src={item.image} 
                 alt="Before and after skincare results" 
-                className="w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
-              {/* Bottom gradient to ensure text readability */}
-              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
               
-              <div className="absolute bottom-3 left-3 text-white font-sans text-[11px] font-bold tracking-wider rounded-sm z-10 drop-shadow-sm">
+              <div className="absolute top-0 bottom-0 left-1/2 w-[2px] bg-white -translate-x-1/2 z-10 pointer-events-none"></div>
+
+              <div className="absolute top-0 left-0 bg-black/40 text-white font-sans text-[10px] font-bold px-[8px] py-[4px] rounded-br-[8px] tracking-wider z-20">
                 BEFORE
               </div>
-              <div className="absolute bottom-3 right-3 bg-[#FF6C84] text-white font-sans text-[11px] font-bold px-2 py-1 rounded-[4px] tracking-wider z-10">
+              <div className="absolute top-0 right-0 bg-[#FF6C84]/70 text-white font-sans text-[10px] font-bold px-[8px] py-[4px] rounded-bl-[8px] tracking-wider z-20">
                 AFTER
               </div>
             </div>
@@ -62,7 +61,7 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section id="reviews" className="py-20 bg-white border-t border-gray-50 scroll-mt-20">
+    <section id="reviews" className="py-12 md:py-[80px] bg-white border-t border-gray-50 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="font-serif text-[40px] font-bold text-center text-[#1A1A1A] mb-12">
           Glow Notes
@@ -70,18 +69,20 @@ export function Testimonials() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((review) => (
-            <div key={review.id} className="bg-[#FFEFED] p-8 rounded-[24px] flex flex-col h-full transform transition-transform hover:-translate-y-1">
-              <div className="flex space-x-1 mb-6">
+            <div key={review.id} className="bg-[#FFEFED] p-[28px] rounded-[16px] flex flex-col min-h-[200px] h-full transform transition-transform hover:-translate-y-1">
+              <div className="flex gap-[3px] mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-[18px] h-[18px] text-[#C9A84C] fill-[#C9A84C]" />
+                  <svg key={i} width="16" height="16" viewBox="0 0 24 24" fill="#C9A84C">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
                 ))}
               </div>
-              <p className="font-sans text-[#1A1A1A] leading-[1.6] mb-8 flex-1 italic text-[16px]">
+              <p className="font-sans text-[#555] leading-[1.7] mb-6 flex-1 italic text-[14px]">
                 "{review.text}"
               </p>
               <div>
-                <p className="font-sans font-bold text-[#1A1A1A] text-[15px]">{review.name}</p>
-                <p className="font-sans text-[#888888] text-[13px] mt-0.5">{review.location}</p>
+                <p className="font-sans font-semibold text-[#1A1A1A] text-[14px]">{review.name}</p>
+                <p className="font-sans text-[#999] text-[13px]">{review.location}</p>
               </div>
             </div>
           ))}
@@ -103,7 +104,7 @@ export function Newsletter() {
   };
 
   return (
-    <section className="bg-[#FFEFED] py-20 px-4">
+    <section className="bg-[#FFEFED] py-12 md:py-[80px] px-4">
       <div className="max-w-2xl mx-auto text-center">
         <h2 className="font-serif text-[40px] font-bold text-[#1A1A1A] mb-4 leading-none">
           The Glow Club

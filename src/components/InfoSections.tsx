@@ -1,30 +1,32 @@
 import React from 'react';
-import { Sparkles, Droplets, Moon } from 'lucide-react';
-import ingredientsImg from '../assets/images/ingredients_flatlay_1781531671670.jpg';
+import ingredientsImg from '../assets/images/lumae_ingredients_1781540002245.jpg';
 import aboutImg from '../assets/images/about_lifestyle_1781531690902.jpg';
 
 export function HowItWorks() {
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
+    <section className="py-12 md:py-[80px] bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <h2 className="font-serif text-[40px] font-bold text-center text-[#1A1A1A] mb-16">
           Your 3-Step Glow Routine
         </h2>
         
-        <div className="relative">
+        <div className="relative max-w-5xl mx-auto">
           {/* Dashed connector line for desktop */}
-          <div className="hidden md:block absolute top-[48px] left-[15%] right-[15%] border-t-2 border-dashed border-[#FFB3C0] z-0"></div>
+          <div className="hidden md:block absolute top-[40px] left-[16.66%] w-[66.66%] border-t border-dashed border-[#FFB3C0] z-0"></div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
             {/* Step 1 */}
             <div className="flex flex-col items-center text-center">
-              <div className="relative w-24 h-24 flex items-center justify-center mb-6">
-                <span className="absolute font-serif text-[80px] text-[#C9A84C] opacity-20 -top-2 z-0 font-bold leading-none select-none">
+              <div className="relative w-[80px] h-[80px] bg-[#FFEFED] border-2 border-[#FFB3C0] rounded-full flex items-center justify-center mb-6 z-10">
+                <span className="absolute -top-2 -right-3 font-serif text-[18px] text-[#C9A84C] bg-white px-1 font-bold leading-none select-none">
                   01
                 </span>
-                <Droplets className="w-12 h-12 text-[#FF6C84] relative z-10" strokeWidth={1.5} />
+                <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
+                  <path d="M24 6C24 6 10 20 10 30C10 37.7 16.3 44 24 44C31.7 44 38 37.7 38 30C38 20 24 6 24 6Z" fill="#FFEFED" stroke="#FF6C84" strokeWidth="2.5" strokeLinejoin="round"/>
+                  <path d="M17 33C17 33 18 38 24 38" stroke="#FF6C84" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
               </div>
-              <h3 className="font-sans font-bold text-[20px] text-[#1A1A1A] mb-2">Cleanse</h3>
+              <h3 className="font-serif font-bold text-[24px] text-[#1A1A1A] mb-2">Cleanse</h3>
               <p className="font-sans text-[15px] text-[#666666] leading-[1.6]">
                 Start with a fresh canvas. Gently remove impurities without stripping natural oils.
               </p>
@@ -32,14 +34,19 @@ export function HowItWorks() {
             
             {/* Step 2 */}
             <div className="flex flex-col items-center text-center">
-              <div className="relative w-24 h-24 flex items-center justify-center mb-6">
-                <span className="absolute font-serif text-[80px] text-[#C9A84C] opacity-20 -top-2 z-0 font-bold leading-none select-none">
+              <div className="relative w-[80px] h-[80px] bg-[#FFEFED] border-2 border-[#FFB3C0] rounded-full flex items-center justify-center mb-6 z-10">
+                <span className="absolute -top-2 -right-3 font-serif text-[18px] text-[#C9A84C] bg-white px-1 font-bold leading-none select-none">
                   02
                 </span>
-                {/* Note: In actual implementation, maybe a different icon for serum, but Droplets/Sparkles works */}
-                <Sparkles className="w-12 h-12 text-[#FF6C84] relative z-10" strokeWidth={1.5} />
+                <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
+                  <rect x="18" y="18" width="12" height="22" rx="6" fill="#FFEFED" stroke="#FF6C84" strokeWidth="2.5"/>
+                  <path d="M21 14h6v4h-6z" fill="#FFEFED" stroke="#FF6C84" strokeWidth="2"/>
+                  <path d="M24 10v4" stroke="#FF6C84" strokeWidth="2.5" strokeLinecap="round"/>
+                  <circle cx="24" cy="9" r="2" fill="#FF6C84"/>
+                  <path d="M24 28v4" stroke="#FF6C84" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
+                </svg>
               </div>
-              <h3 className="font-sans font-bold text-[20px] text-[#1A1A1A] mb-2">Serum</h3>
+              <h3 className="font-serif font-bold text-[24px] text-[#1A1A1A] mb-2">Serum</h3>
               <p className="font-sans text-[15px] text-[#666666] leading-[1.6]">
                 Target your concerns. Press active ingredients deep into skin for maximum glow and absorption.
               </p>
@@ -47,13 +54,18 @@ export function HowItWorks() {
 
             {/* Step 3 */}
             <div className="flex flex-col items-center text-center">
-              <div className="relative w-24 h-24 flex items-center justify-center mb-6">
-                <span className="absolute font-serif text-[80px] text-[#C9A84C] opacity-20 -top-2 z-0 font-bold leading-none select-none">
+              <div className="relative w-[80px] h-[80px] bg-[#FFEFED] border-2 border-[#FFB3C0] rounded-full flex items-center justify-center mb-6 z-10">
+                <span className="absolute -top-2 -right-3 font-serif text-[18px] text-[#C9A84C] bg-white px-1 font-bold leading-none select-none">
                   03
                 </span>
-                <Moon className="w-12 h-12 text-[#FF6C84] relative z-10" strokeWidth={1.5} />
+                <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
+                  <ellipse cx="24" cy="34" rx="16" ry="8" fill="#FFEFED" stroke="#FF6C84" strokeWidth="2.5"/>
+                  <path d="M8 28h32v6H8z" fill="#FFEFED" stroke="#FF6C84" strokeWidth="2.5" strokeLinejoin="round"/>
+                  <path d="M10 28c0-3 6.3-6 14-6s14 3 14 6" stroke="#FF6C84" strokeWidth="2.5"/>
+                  <path d="M16 20c0-4 3.6-8 8-8s8 4 8 8" stroke="#FF6C84" strokeWidth="2" strokeDasharray="3 2"/>
+                </svg>
               </div>
-              <h3 className="font-sans font-bold text-[20px] text-[#1A1A1A] mb-2">Moisturize</h3>
+              <h3 className="font-serif font-bold text-[24px] text-[#1A1A1A] mb-2">Moisturize</h3>
               <p className="font-sans text-[15px] text-[#666666] leading-[1.6]">
                 Lock it all in. Seal in hydration and protect your skin all day.
               </p>
@@ -67,7 +79,7 @@ export function HowItWorks() {
 
 export function Ingredients() {
   return (
-    <section id="ingredients" className="bg-[#FFEFED] py-20 scroll-mt-20">
+    <section id="ingredients" className="bg-[#FFEFED] py-12 md:py-[80px] scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Left Half - Image (45%) */}
@@ -94,25 +106,37 @@ export function Ingredients() {
               
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
-                  <span className="text-[#C9A84C] text-[20px] font-bold leading-none mt-1">✓</span>
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="shrink-0 mt-0.5">
+                    <circle cx="10" cy="10" r="9" fill="#C9A84C" opacity="0.15"/>
+                    <path d="M6 10l3 3 5-5" stroke="#C9A84C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                   <p className="font-sans text-[15px] text-[#666666] m-0">
                     <strong className="font-bold text-[#1A1A1A]">Vitamin C</strong> — Brightens and evens skin tone
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <span className="text-[#C9A84C] text-[20px] font-bold leading-none mt-1">✓</span>
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="shrink-0 mt-0.5">
+                    <circle cx="10" cy="10" r="9" fill="#C9A84C" opacity="0.15"/>
+                    <path d="M6 10l3 3 5-5" stroke="#C9A84C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                   <p className="font-sans text-[15px] text-[#666666] m-0">
                     <strong className="font-bold text-[#1A1A1A]">Hyaluronic Acid</strong> — Deep 72-hour hydration
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <span className="text-[#C9A84C] text-[20px] font-bold leading-none mt-1">✓</span>
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="shrink-0 mt-0.5">
+                    <circle cx="10" cy="10" r="9" fill="#C9A84C" opacity="0.15"/>
+                    <path d="M6 10l3 3 5-5" stroke="#C9A84C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                   <p className="font-sans text-[15px] text-[#666666] m-0">
                     <strong className="font-bold text-[#1A1A1A]">Niacinamide</strong> — Minimizes pores and controls oil
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <span className="text-[#C9A84C] text-[20px] font-bold leading-none mt-1">✓</span>
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="shrink-0 mt-0.5">
+                    <circle cx="10" cy="10" r="9" fill="#C9A84C" opacity="0.15"/>
+                    <path d="M6 10l3 3 5-5" stroke="#C9A84C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                   <p className="font-sans text-[15px] text-[#666666] m-0">
                     <strong className="font-bold text-[#1A1A1A]">Peptides</strong> — Firms skin and reduces fine lines
                   </p>
@@ -134,7 +158,7 @@ export function Ingredients() {
 
 export function AboutSection() {
   return (
-    <section id="about" className="bg-white py-20 scroll-mt-20">
+    <section id="about" className="bg-white py-12 md:py-[80px] scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Left Half - Image (40%) */}

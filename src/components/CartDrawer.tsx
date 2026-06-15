@@ -183,7 +183,7 @@ export function CartDrawer() {
                     />
                     <button
                       type="submit"
-                      className="bg-text-charcoal text-white rounded-full px-5 py-2 font-sans text-xs font-semibold hover:bg-opacity-90 transition-colors uppercase"
+                      className="bg-[#FF6C84] text-white rounded-full px-5 py-2 font-sans text-xs font-semibold flex items-center justify-center hover:brightness-105 transition-colors uppercase"
                     >
                       Apply
                     </button>
@@ -230,13 +230,13 @@ export function CartDrawer() {
                   <div className="grid grid-cols-2 gap-3">
                     <button
                       onClick={handleCheckout}
-                      className="bg-black text-white py-3 px-4 rounded-full font-sans font-semibold text-xs flex items-center justify-center gap-1.5 hover:bg-gray-900 transition-colors cursor-pointer"
+                      className="bg-[#FF6C84] text-white py-3 px-4 rounded-full font-sans font-semibold text-xs flex items-center justify-center gap-1.5 hover:brightness-105 transition-colors cursor-pointer"
                     >
                       <span className="text-sm font-bold"></span> Pay
                     </button>
                     <button
                       onClick={handleCheckout}
-                      className="bg-[#FFC439] text-[#003087] py-3 px-4 rounded-full font-sans font-bold text-xs flex items-center justify-center gap-1 hover:bg-[#E1AD2F] transition-colors cursor-pointer"
+                      className="bg-[#FF6C84] text-white py-3 px-4 rounded-full font-sans font-bold text-xs flex items-center justify-center gap-1 hover:brightness-105 transition-colors cursor-pointer"
                     >
                       PayPal
                     </button>
