@@ -10,13 +10,15 @@ import { CategoryGrid, FeaturedProducts } from './components/ProductSections';
 import { HowItWorks, Ingredients, AboutSection } from './components/InfoSections';
 import { BeforeAfter, Testimonials, Newsletter } from './components/SocialProof';
 import { CartProvider } from './context/CartContext';
+import { WishlistProvider } from './context/WishlistContext';
 import { CartDrawer } from './components/CartDrawer';
 import { ScrollAnimate } from './components/ScrollAnimate';
 
 export default function App() {
   return (
-    <CartProvider>
-      <div className="min-h-screen bg-white">
+    <WishlistProvider>
+      <CartProvider>
+        <div className="min-h-screen bg-white">
         {/* 1. STICKY NAVIGATION */}
         <Navigation />
 
@@ -84,6 +86,7 @@ export default function App() {
         <CartDrawer />
       </div>
     </CartProvider>
+    </WishlistProvider>
   );
 }
 

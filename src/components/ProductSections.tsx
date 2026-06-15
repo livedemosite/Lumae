@@ -1,6 +1,7 @@
 import React from 'react';
-import { Star } from 'lucide-react';
+import { Star, Heart } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { useWishlist } from '../context/WishlistContext';
 
 import catBrightening from '../assets/images/cat_brightening_1781531612355.jpg';
 import catHydration from '../assets/images/cat_hydration_1781531628484.jpg';
@@ -85,6 +86,7 @@ const products = [
 
 export function FeaturedProducts() {
   const { addToCart } = useCart();
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
 
   return (
     <section id="best-sellers" className="py-24 bg-gray-50/50 scroll-mt-20">
@@ -109,15 +111,31 @@ export function FeaturedProducts() {
                 
                 {/* Premium Small Curated Badge */}
                 {product.badge && (
-                  <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full border border-pink-100 shadow-sm">
+                  <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full border border-pink-100 shadow-sm z-10">
                     <span className="font-sans text-[10px] font-bold text-text-charcoal uppercase tracking-wider">
                       {product.badge}
                     </span>
                   </div>
                 )}
 
+                {/* Wishlist Button */}
+                <button 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (isInWishlist(product.id)) {
+                      removeFromWishlist(product.id);
+                    } else {
+                      addToWishlist(product);
+                    }
+                  }}
+                  className={`absolute top-3 right-3 z-10 bg-white/90 backdrop-blur-md p-2 rounded-full shadow-sm transition-all duration-300 hover:scale-110 ${isInWishlist(product.id) ? 'text-primary-pink' : 'text-gray-400 hover:text-primary-pink'}`}
+                  aria-label="Toggle wishlist"
+                >
+                  <Heart className={`w-4 h-4 ${isInWishlist(product.id) ? 'fill-current' : ''}`} />
+                </button>
+
                 {/* Desktop Hover Add to Cart Overlay */}
-                <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 flex items-end justify-center pb-4 transition-all duration-300">
+                <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 flex items-end justify-center pb-4 transition-all duration-300 z-0">
                   <button 
                     onClick={() => addToCart(product)}
                     className="bg-primary-pink text-white font-sans text-xs font-bold px-6 py-2.5 rounded-full shadow-lg transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 hover:bg-opacity-95"

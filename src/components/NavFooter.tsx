@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { ShoppingCart, Menu, X } from 'lucide-react';
+import { ShoppingCart, Menu, X, Heart } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { useWishlist } from '../context/WishlistContext';
 import { motion, AnimatePresence } from 'motion/react';
 
 export function Navigation() {
   const { cartCount, setIsCartOpen } = useCart();
+  const { wishlistCount } = useWishlist();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
@@ -67,18 +69,34 @@ export function Navigation() {
           </div>
 
           {/* Right Actions */}
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-3 md:space-x-6">
+            <button 
+              className="text-text-charcoal hover:text-primary-pink transition-colors relative p-2"
+              aria-label="Wishlist"
+            >
+              <Heart className="w-5 h-5 md:w-6 md:h-6" />
+              {wishlistCount > 0 && (
+                <motion.span 
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  key={wishlistCount}
+                  className="absolute -top-1 -right-1 bg-primary-pink text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow-md scale-95"
+                >
+                  {wishlistCount}
+                </motion.span>
+              )}
+            </button>
             <button 
               onClick={() => setIsCartOpen(true)}
               className="text-text-charcoal hover:text-primary-pink transition-colors relative p-2"
               aria-label="Open cart"
             >
-              <ShoppingCart className="w-6 h-6" />
+              <ShoppingCart className="w-5 h-5 md:w-6 md:h-6" />
               {cartCount > 0 && (
                 <motion.span 
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  key={cartCount}
+                  key={`cart-${cartCount}`}
                   className="absolute -top-1 -right-1 bg-primary-pink text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow-md scale-95"
                 >
                   {cartCount}
