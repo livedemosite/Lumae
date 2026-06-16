@@ -6,7 +6,7 @@
 import React from 'react';
 import { Navigation, Footer } from './components/NavFooter';
 import { Hero, TrustBar, PromoBanner, FreeShippingBanner, SkinQuizBanner } from './components/HomeSections';
-import { CategoryGrid, FeaturedProducts } from './components/ProductSections';
+import { CategoryGrid, FeaturedProducts, ShopPage } from './components/ProductSections';
 import { HowItWorks, Ingredients, AboutSection } from './components/InfoSections';
 import { BeforeAfter, Testimonials, Newsletter } from './components/SocialProof';
 import { CartProvider, useCart } from './context/CartContext';
@@ -102,6 +102,12 @@ function AppContent() {
               <Newsletter />
             </ScrollAnimate>
           </>
+        )}
+
+        {currentView === 'shop' && (
+          <ScrollAnimate>
+            <ShopPage />
+          </ScrollAnimate>
         )}
 
         {currentView === 'product-detail' && (

@@ -249,17 +249,6 @@ export function CartDrawer() {
                     <span className="flex-1 h-[1px] bg-pink-100"></span>
                   </div>
 
-                  <button
-                    onClick={handleCheckout}
-                    className="w-full bg-primary-pink text-white font-sans font-bold py-3.5 rounded-full border border-white/10 hover:brightness-105 transition-all text-center flex items-center justify-center gap-2 cursor-pointer"
-                  >
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-4.5 h-4.5">
-                      <rect x="2" y="5" width="20" height="14" rx="2" ry="2" />
-                      <line x1="2" y1="10" x2="22" y2="10" />
-                    </svg>
-                    Instant Demo Checkout
-                  </button>
-
                   <div className="grid grid-cols-2 gap-3">
                     <button
                       onClick={handleCheckout}

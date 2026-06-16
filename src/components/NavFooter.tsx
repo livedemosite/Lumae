@@ -113,8 +113,27 @@ export function Navigation() {
 
             {/* Desktop Nav */}
             <div className="hidden md:flex space-x-6 lg:space-x-10 items-center">
-              <a href="#shop" onClick={(e) => handleSmoothScroll(e, 'shop')} className="font-sans font-semibold text-text-charcoal hover:text-primary-pink transition-colors text-[14px] uppercase tracking-wide">HOME</a>
-              <a href="#shop" onClick={(e) => handleSmoothScroll(e, 'shop')} className="font-sans font-semibold text-text-charcoal hover:text-primary-pink transition-colors text-[14px] uppercase tracking-wide">SHOP</a>
+              <a 
+                href="#" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  setCurrentView('home');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }} 
+                className="font-sans font-semibold text-text-charcoal hover:text-primary-pink transition-colors text-[14px] uppercase tracking-wide"
+              >
+                HOME
+              </a>
+              <a 
+                href="#" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  setCurrentView('shop');
+                }} 
+                className="font-sans font-semibold text-text-charcoal hover:text-primary-pink transition-colors text-[14px] uppercase tracking-wide"
+              >
+                SHOP
+              </a>
               <a href="#about" onClick={(e) => handleSmoothScroll(e, 'about')} className="font-sans font-semibold text-text-charcoal hover:text-primary-pink transition-colors text-[14px] uppercase tracking-wide">ABOUT</a>
               <a href="#ingredients" onClick={(e) => handleSmoothScroll(e, 'ingredients')} className="font-sans font-semibold text-text-charcoal hover:text-primary-pink transition-colors text-[14px] uppercase tracking-wide">INGREDIENTS</a>
               <a href="#reviews" onClick={(e) => handleSmoothScroll(e, 'reviews')} className="font-sans font-semibold text-text-charcoal hover:text-primary-pink transition-colors text-[14px] uppercase tracking-wide">REVIEWS</a>
@@ -166,7 +185,7 @@ export function Navigation() {
                 )}
               </button>
               <button 
-                onClick={() => setIsCartOpen(true)}
+                onClick={() => setCurrentView('shop')}
                 className="hidden sm:inline-flex bg-primary-pink text-white font-sans px-6 py-2.5 rounded-full hover:brightness-108 transition-all font-semibold text-[14px] tracking-wide"
               >
                 Shop Now
@@ -263,8 +282,29 @@ export function Navigation() {
               className="md:hidden border-t border-pink-50 bg-white/98 backdrop-blur-lg overflow-hidden"
             >
               <div className="px-6 py-8 space-y-5">
-                <a href="#shop" onClick={(e) => handleSmoothScroll(e, 'shop')} className="block font-sans font-semibold text-text-charcoal hover:text-primary-pink transition-colors text-lg uppercase">HOME</a>
-                <a href="#shop" onClick={(e) => handleSmoothScroll(e, 'shop')} className="block font-sans font-semibold text-text-charcoal hover:text-primary-pink transition-colors text-lg uppercase">SHOP</a>
+                <a 
+                  href="#" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMobileMenuOpen(false);
+                    setCurrentView('home');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }} 
+                  className="block font-sans font-semibold text-text-charcoal hover:text-primary-pink transition-colors text-lg uppercase"
+                >
+                  HOME
+                </a>
+                <a 
+                  href="#" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMobileMenuOpen(false);
+                    setCurrentView('shop');
+                  }} 
+                  className="block font-sans font-semibold text-text-charcoal hover:text-primary-pink transition-colors text-lg uppercase"
+                >
+                  SHOP
+                </a>
                 <a href="#about" onClick={(e) => handleSmoothScroll(e, 'about')} className="block font-sans font-semibold text-text-charcoal hover:text-primary-pink transition-colors text-lg uppercase">ABOUT</a>
                 <a href="#ingredients" onClick={(e) => handleSmoothScroll(e, 'ingredients')} className="block font-sans font-semibold text-text-charcoal hover:text-primary-pink transition-colors text-lg uppercase">INGREDIENTS</a>
                 <a href="#reviews" onClick={(e) => handleSmoothScroll(e, 'reviews')} className="block font-sans font-semibold text-text-charcoal hover:text-primary-pink transition-colors text-lg uppercase">REVIEWS</a>
@@ -273,7 +313,7 @@ export function Navigation() {
                   <button 
                     onClick={() => {
                       setIsMobileMenuOpen(false);
-                      setIsCartOpen(true);
+                      setCurrentView('shop');
                     }}
                     className="w-full bg-primary-pink text-white font-sans font-semibold py-3.5 rounded-full hover:bg-opacity-95 text-center text-sm shadow-md"
                   >
@@ -290,6 +330,7 @@ export function Navigation() {
 }
 
 export function Footer() {
+  const { setCurrentView } = useCart();
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
     const element = document.getElementById(targetId);
@@ -351,8 +392,27 @@ export function Footer() {
           <div>
             <h4 className="font-sans font-bold text-[15px] text-white mb-4">Quick Links</h4>
             <div className="flex flex-col space-y-0 leading-[2.2]">
-              <a href="#" className="font-sans text-[14px] text-[#999999] hover:text-primary-pink transition-colors duration-200">Home</a>
-              <a href="#shop" onClick={(e) => handleSmoothScroll(e, 'shop')} className="font-sans text-[14px] text-[#999999] hover:text-primary-pink transition-colors duration-200">Shop All</a>
+              <a 
+                href="#" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  setCurrentView('home');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }} 
+                className="font-sans text-[14px] text-[#999999] hover:text-primary-pink transition-colors duration-200"
+              >
+                Home
+              </a>
+              <a 
+                href="#" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  setCurrentView('shop');
+                }} 
+                className="font-sans text-[14px] text-[#999999] hover:text-primary-pink transition-colors duration-200"
+              >
+                Shop All
+              </a>
               <a href="#about" onClick={(e) => handleSmoothScroll(e, 'about')} className="font-sans text-[14px] text-[#999999] hover:text-primary-pink transition-colors duration-200">About</a>
               <a href="#ingredients" onClick={(e) => handleSmoothScroll(e, 'ingredients')} className="font-sans text-[14px] text-[#999999] hover:text-primary-pink transition-colors duration-200">Ingredients</a>
               <a href="#" className="font-sans text-[14px] text-[#999999] hover:text-primary-pink transition-colors duration-200">Blog</a>
